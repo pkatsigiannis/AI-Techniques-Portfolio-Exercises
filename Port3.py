@@ -11,18 +11,18 @@ def office_next_to(a, b):
 def solve():
     problem = Problem()
 
-    departments = ["CS", "Mathematics", "Philosophy", "History", "Dept5"]
+    modules = ["CS", "Mathematics", "Philosophy", "History", "M5"]
     research = ["AI", "ClimateChange", "QuantumPhysics", "Neuroscience", "MedievalLiterature"]
     cars = ["Tesla", "BMW", "Mercedes", "Audi", "Volvo"]
     universities = ["Oxford", "Cambridge", "Harvard", "MIT", "Stanford"]
     decor = ["Blue", "Green", "Red", "Yellow", "White"]
-    drinks = ["Espresso", "HerbalTea", "GreenTea", "BlackCoffee", "Drink5"]
+    drinks = ["Espresso", "HerbalTea", "GreenTea", "BlackCoffee", "D5"]
 
-    variables = departments + research + cars + universities + decor + drinks
+    variables = modules + research + cars + universities + decor + drinks
 
     problem.addVariables(variables, [1, 2, 3, 4, 5])
 
-    problem.addConstraint(AllDifferentConstraint(), departments)
+    problem.addConstraint(AllDifferentConstraint(), modules)
     problem.addConstraint(AllDifferentConstraint(), research)
     problem.addConstraint(AllDifferentConstraint(), cars)
     problem.addConstraint(AllDifferentConstraint(), universities)
@@ -52,9 +52,9 @@ def solve():
     for solution in solutions:
         medieval_office = solution["MedievalLiterature"]
 
-        for department in departments:
-            if solution[department] == medieval_office:
-                possible_professors.add(department)
+        for module in modules:
+            if solution[module] == medieval_office:
+                possible_professors.add(module)
 
     print("Number of valid solutions:", len(solutions))
     print("Possible professors researching Medieval Literature:")
