@@ -39,12 +39,28 @@ define(Vars, Modules, Research) :-
 office_next_to(O1, O2) :-
     abs(O1 - O2) #= 1.
 
-solve_riddle(Professor) :-
+solve_riddle_full(Professor, Vars) :-
     define(Vars, Modules, Research),
     labeling([ffc], Vars),
 
     Modules = [CS, Mathematics, Philosophy, History, M5],
-    Research = [_AI, _ClimateChange, _QuantumPhysics, _Neuroscience, MedievalLiterature],
+    Research = [_, _, _, _, MedievalLiterature],
+
+    ( MedievalLiterature =:= CS -> Professor = cs
+    ; MedievalLiterature =:= Mathematics -> Professor = mathematics
+    ; MedievalLiterature =:= Philosophy -> Professor = philosophy
+    ; MedievalLiterature =:= History -> Professor = history
+    ; MedievalLiterature =:= M5 -> Professor = module5
+    ).
+
+solve_riddle_office(Professor, MedievalOffice) :-
+    define(Vars, Modules, Research),
+    labeling([ffc], Vars),
+
+    Modules = [CS, Mathematics, Philosophy, History, M5],
+    Research = [_, _, _, _, MedievalLiterature],
+
+    MedievalOffice = MedievalLiterature,
 
     ( MedievalLiterature =:= CS -> Professor = cs
     ; MedievalLiterature =:= Mathematics -> Professor = mathematics
