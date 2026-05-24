@@ -33,7 +33,7 @@
             "isa": "Bird",
             "slots": {}
         },
-        "Penguin_Animal": {
+        "Penguin": {
             "isa": "Bird",
             "slots": {
                 "can_fly": {
@@ -200,7 +200,7 @@
         "Penguin_Character": {
             "instance_of": "Fictional_Character",
             "slots": {
-                "pretends_to_be": "Penguin_Animal"
+                "pretends_to_be": "Penguin"
             }
         },
         "Spiderman": {
