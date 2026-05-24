@@ -1,0 +1,286 @@
+{
+    "classes": {
+        "Animal": {
+            "slots": {
+                "birth_date": {
+                    "type": "integer",
+                    "default": null
+                },
+                "age": {
+                    "type": "integer",
+                    "derivation": "IF-NEEDED: 2026 - birth_date"
+                },
+                "can_fly": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        },
+        "Bird": {
+            "isa": "Animal",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "default": 2
+                }
+            }
+        },
+        "Canary": {
+            "isa": "Bird",
+            "slots": {}
+        },
+        "Duck": {
+            "isa": "Bird",
+            "slots": {}
+        },
+        "Penguin_Animal": {
+            "isa": "Bird",
+            "slots": {
+                "can_fly": {
+                    "type": "boolean",
+                    "value": false
+                }
+            }
+        },
+        "Mammal": {
+            "isa": "Animal",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "default": 4
+                },
+                "can_fly": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "Bat": {
+            "isa": "Mammal",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "value": 2
+                },
+                "can_fly": {
+                    "type": "boolean",
+                    "value": true
+                }
+            }
+        },
+        "Cat": {
+            "isa": "Mammal",
+            "slots": {}
+        },
+        "Human": {
+            "isa": "Mammal",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "value": 2
+                }
+            }
+        },
+        "Insect": {
+            "isa": "Animal",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "default": 6
+                },
+                "antennae": {
+                    "type": "integer",
+                    "default": 2
+                }
+            }
+        },
+        "Ant": {
+            "isa": "Insect",
+            "slots": {}
+        },
+        "Spider": {
+            "isa": "Insect",
+            "slots": {
+                "legs": {
+                    "type": "integer",
+                    "value": 8
+                },
+                "antennae": {
+                    "type": "integer",
+                    "value": 0
+                },
+                "can_fly": {
+                    "type": "boolean",
+                    "value": false
+                }
+            }
+        },
+        "Fictional_Character": {
+            "slots": {
+                "pretends_to_be": {
+                    "type": "string",
+                    "default": null
+                }
+            }
+        },
+        "Actor": {
+            "isa": "Human",
+            "slots": {}
+        },
+        "Male_Actor": {
+            "isa": "Actor",
+            "slots": {
+                "sex": {
+                    "type": "string",
+                    "value": "male"
+                }
+            }
+        },
+        "Female_Actor": {
+            "isa": "Actor",
+            "slots": {
+                "sex": {
+                    "type": "string",
+                    "value": "female"
+                }
+            }
+        },
+        "Film": {
+            "slots": {
+                "title": {
+                    "type": "string",
+                    "default": null
+                },
+                "characters": {
+                    "type": "array",
+                    "default": []
+                },
+                "cast": {
+                    "type": "array",
+                    "default": []
+                }
+            }
+        },
+        "Batman_Film": {
+            "isa": "Film",
+            "slots": {
+                "characters": {
+                    "type": "array",
+                    "value": [
+                        "Batman"
+                    ]
+                }
+            }
+        },
+        "Spiderman_Film": {
+            "isa": "Film",
+            "slots": {
+                "characters": {
+                    "type": "array",
+                    "value": [
+                        "Spiderman"
+                    ]
+                }
+            }
+        }
+    },
+    "instances": {
+        "Batman": {
+            "instance_of": "Fictional_Character",
+            "slots": {
+                "pretends_to_be": "Bat"
+            }
+        },
+        "Catwoman": {
+            "instance_of": "Fictional_Character",
+            "slots": {
+                "pretends_to_be": "Cat"
+            }
+        },
+        "Penguin_Character": {
+            "instance_of": "Fictional_Character",
+            "slots": {
+                "pretends_to_be": "Penguin_Animal"
+            }
+        },
+        "Spiderman": {
+            "instance_of": "Fictional_Character",
+            "slots": {
+                "pretends_to_be": "Spider"
+            }
+        },
+        "Ben_Affleck": {
+            "instance_of": "Male_Actor",
+            "slots": {
+                "birth_date": 1972,
+                "played_in": [
+                    "Batman_Film"
+                ]
+            }
+        },
+        "Danny_DeVitto": {
+            "instance_of": "Male_Actor",
+            "slots": {
+                "birth_date": 1944,
+                "played": "Penguin_Character",
+                "played_in": [
+                    "Batman_Returns"
+                ]
+            }
+        },
+        "Michael_Keaton": {
+            "instance_of": "Male_Actor",
+            "slots": {
+                "birth_date": 1951,
+                "played_in": [
+                    "Batman_Returns"
+                ]
+            }
+        },
+        "Val_Kilmer": {
+            "instance_of": "Male_Actor",
+            "slots": {
+                "birth_date": 1959,
+                "played_in": [
+                    "Batman_Film"
+                ]
+            }
+        },
+        "Tobias_Maguire": {
+            "instance_of": "Male_Actor",
+            "slots": {
+                "birth_date": 1975,
+                "played_in": [
+                    "Spiderman_Film"
+                ]
+            }
+        },
+        "Michelle_Pfeiffer": {
+            "instance_of": "Female_Actor",
+            "slots": {
+                "birth_date": 1958,
+                "played": "Catwoman",
+                "played_in": [
+                    "Batman_Returns"
+                ]
+            }
+        },
+        "Batman_Returns": {
+            "instance_of": "Batman_Film",
+            "slots": {
+                "title": "Batman_Returns",
+                "characters": [
+                    "Batman",
+                    "Catwoman",
+                    "Penguin_Character"
+                ],
+                "cast": [
+                    "Danny_DeVitto",
+                    "Michael_Keaton",
+                    "Michelle_Pfeiffer"
+                ],
+                "starring": "Michael_Keaton"
+            }
+        }
+    }
+}
