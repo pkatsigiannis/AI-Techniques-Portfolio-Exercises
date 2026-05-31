@@ -54,7 +54,8 @@ def id3(data, original_data, features, target="Class", parent_node_class=None):
         subtree = id3(subset, original_data, features, target, parent_node_class)
         tree[best_feature][value] = subtree
 
-    data = pd.DataFrame({...})
-    features = list(data.columns[:-1])
-    tree = id3(data, data, features)
-    print(tree)
+
+data = pd.DataFrame({...})
+features = list(data.columns[:-1])
+tree = id3(data, data, features)
+print(tree)
